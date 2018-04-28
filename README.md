@@ -1,2 +1,2 @@
-# Layout---Frontend-
-Proyectos personales a modo de practica
+# Layout-Frontend
+Personal projects as a practice
