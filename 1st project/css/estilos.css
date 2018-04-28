@@ -1,0 +1,282 @@
+/*Estilos Generales*/
+
+html{
+	box-sizing: border-box;
+	height: 100%;
+}
+
+
+*,*:before,*:after{
+	/*margin: 10px;
+	padding: 10px;*/
+
+	/*Hereda el valor de HTML*/
+	box-sizing: inherit;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*
+Le damos un height de 100% a HTML y a .Padre, luego le declaramos "background-repeat: no-repeat"
+y "background-attachment: fixed" para que el efecto del degradado del comienzo de la pantalla
+se quede fija a toda la pantalla cuando le damos scroll
+*/
+
+.padre{
+	height: 100%;
+	font-family: arial,helvetica, sans-serif;
+	font-size: 62,5%;
+	display: flex;
+	flex-flow: column nowrap;
+	background: #11CBD7;
+	background: linear-gradient(#2D4059 3%,#11CBD7 27%,#2D4059);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+/*================================================================================*/
+/*Cabecera*/
+
+	.header{
+		/*background-color: #000;*/
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
+		.logo{
+			background: url(../img/logo.png) no-repeat center;
+			height: 100px; 
+			margin: 25px 0;
+			
+		}
+
+		.imange-cabecera{
+		}
+
+		.imagen-cabecera img{
+			background-size: 782px;
+    		height: 40%;
+    		width: 70%;
+    		margin: 10px 15%;
+    		box-shadow: 0px 11px 25px darkslategrey;
+		}
+
+
+/*================================================================================*/
+/*Contenido Principal*/
+
+	.contenido-principal{
+		/*background-color: #000;*/
+		display: flex;
+		flex-flow: column nowrap;
+
+	}
+
+		.titulo{
+			/*background-color: #F7B32D;*/
+			text-align: center;
+			color: #fff;
+			font-size: 2.2em;
+			text-shadow: 1px 5px 5px darkslategrey;
+			margin:2%;
+		}
+
+		.productos{
+			/*background-color: #E43A19;*/
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			margin: 0 0%;
+		}
+		
+		.producto{
+			/*background-color: #8559A5;*/
+			margin: 10px;
+		    display: flex;
+		    flex-flow: column;
+		    width: 435px;
+    		height: 460px;
+    		box-sizing: border-box;
+
+		}
+
+			.producto img{
+				width: 60%;
+			    margin: 0 20%;
+			    margin-top: 10px;
+			    border: 10px solid rgba(128,1,195,.45);
+
+			}
+
+			.producto img:hover{
+					border: 10px solid #FDA403;
+			}
+
+			
+			.producto p{
+				text-align: center;
+				margin: 10px;
+				font-weight: bold;
+				display: block;
+				color:#fff;
+
+			}
+
+			.producto .precio{
+				font-size: 45px;
+    			color: #ffce00;
+    			letter-spacing: -2px;
+    			display: inline;
+    			font-weight: bold;
+
+			}
+
+			.producto a{
+				color: white;
+				text-align: center;
+				text-transform: uppercase;
+				text-decoration: none;
+				background: #ffce00;
+			    padding: 10px 0px;
+			    margin: 0px 108px;
+			    font-weight: bold;
+			    color: #2D4059;
+			}
+
+
+			.producto a:hover{
+				background: #2D4059;
+				color: #fff;
+			}
+
+/*================================================================================*/
+
+/*Sitio Web Responsivo*/
+
+/*Si se tiene problemas con el @media all and (max-width:500px)
+probar con @media only screen and (max-device-width: 500px)*/
+
+
+
+/*Media Query para Pantallas Grandes*/
+@media only screen 
+and (min-width : 1824px){
+	
+
+	.padre{
+		font-size: 3em;
+	}
+
+		.logo{
+			height: 5em;
+			background-size: 10em;
+		}
+
+		.imagen-cabecera img{
+
+	    		width: 40%;
+	   			margin: 10px 30%;
+			}
+
+		.producto{
+			margin: 3% 0;
+			width: 25%;
+			height: 25%;
+
+		}
+			.producto a{
+				font-size: 1em;
+				padding: 3%;
+				margin: auto; 
+			}	
+}
+
+@media only screen 
+and (max-width : 1824px){
+
+	.logo{
+			height: 10em;
+			background-size: 20em;
+			margin:auto;
+	}
+
+	.producto p{
+		font-size: 2em;
+	}
+
+	.producto a{
+		font-size: 1.2em;
+	}
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+/*Media Query para Pantallas PC y Portatiles*/
+
+@media only screen 
+and (max-width : 600px){
+
+	.logo{
+			height: 5em;
+			background-size: 10em;
+			margin:auto;
+	}
+
+	.imagen-cabecera img{
+
+    		width: 100%;
+    		height: 30%;
+   			margin: 0;
+		}
+	.titulo{
+		margin:35px;
+	}	
+
+}
+
+
+@media only screen 
+and (max-width : 420px){
+
+	.logo{
+			height: 5em;
+			background-size: 10em;
+			margin:auto;
+	}
+	.producto{
+		height: auto;
+	}
+
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+/*Media Query para Celulares*/
+
+@media only screen 
+and (max-device-width : 600px){
+
+	.logo{
+			height: 10em;
+			background-size: 20em;
+			
+	}
+
+	.imagen-cabecera img{
+
+    		width: 100%;
+    		height: 30%;
+   			margin: 0;
+		}
+
+	.productos{
+			/*background-color: #E43A19;*/
+			margin: 0 10%;
+		}
+}
+
+
