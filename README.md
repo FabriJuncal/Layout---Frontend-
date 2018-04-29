@@ -7,6 +7,6 @@
 ## 1st Proyect:
 
 
-### Maquetacion of a very basic store, to build its structure flexbox was used.
+### The design of a very basic store was used, to build its structure was made use of FlexBox.
 ![1st_proyect](img/1st_Proyect.png)
 > [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/1st%20project)
