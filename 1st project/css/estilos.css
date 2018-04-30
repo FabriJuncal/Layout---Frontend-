@@ -54,15 +54,13 @@ se quede fija a toda la pantalla cuando le damos scroll
 			
 		}
 
-		.imange-cabecera{
-		}
-
 		.imagen-cabecera img{
+			width: 100%;
 			background-size: 782px;
-    		height: 40%;
-    		width: 70%;
-    		margin: 10px 15%;
-    		box-shadow: 0px 11px 25px darkslategrey;
+			height: 40%;
+			width: 70%;
+			margin: 10px 15%;
+			box-shadow: 0px 11px 25px darkslategrey;
 		}
 
 
@@ -80,9 +78,9 @@ se quede fija a toda la pantalla cuando le damos scroll
 			/*background-color: #F7B32D;*/
 			text-align: center;
 			color: #fff;
-			font-size: 2.2em;
+			font-size: 3em;
 			text-shadow: 1px 5px 5px darkslategrey;
-			margin:2%;
+			margin-top: 20px;
 		}
 
 		.productos{
@@ -90,7 +88,8 @@ se quede fija a toda la pantalla cuando le damos scroll
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: center;
-			margin: 0 0%;
+			margin-top: 30px;
+    			margin-bottom: 40px;
 		}
 		
 		.producto{
@@ -99,13 +98,13 @@ se quede fija a toda la pantalla cuando le damos scroll
 		    display: flex;
 		    flex-flow: column;
 		    width: 435px;
-    		height: 460px;
-    		box-sizing: border-box;
+		    height: 460px;
+		    box-sizing: border-box;
 
 		}
 
 			.producto img{
-				width: 60%;
+			    width: 60%;
 			    margin: 0 20%;
 			    margin-top: 10px;
 			    border: 10px solid rgba(128,1,195,.45);
@@ -113,7 +112,8 @@ se quede fija a toda la pantalla cuando le damos scroll
 			}
 
 			.producto img:hover{
-					border: 10px solid #FDA403;
+				border: 10px solid #FDA403;
+
 			}
 
 			
@@ -128,23 +128,24 @@ se quede fija a toda la pantalla cuando le damos scroll
 
 			.producto .precio{
 				font-size: 45px;
-    			color: #ffce00;
-    			letter-spacing: -2px;
-    			display: inline;
-    			font-weight: bold;
+				color: #ffce00;
+				letter-spacing: -2px;
+				display: inline;
+				font-weight: bold;
 
 			}
 
 			.producto a{
-				color: white;
 				text-align: center;
 				text-transform: uppercase;
 				text-decoration: none;
+				font-weight: bold;
 				background: #ffce00;
-			    padding: 10px 0px;
-			    margin: 0px 108px;
-			    font-weight: bold;
-			    color: #2D4059;
+			        padding: 10px 0px;
+			        margin: 0px 108px;
+			        color: #2D4059;
+			  
+
 			}
 
 
@@ -179,7 +180,7 @@ and (min-width : 1824px){
 		.imagen-cabecera img{
 
 	    		width: 40%;
-	   			margin: 10px 30%;
+	   		margin: 10px 30%;
 			}
 
 		.producto{
@@ -199,9 +200,9 @@ and (min-width : 1824px){
 and (max-width : 1824px){
 
 	.logo{
-			height: 10em;
-			background-size: 20em;
-			margin:auto;
+		height: 10em;
+		background-size: 20em;
+		margin:auto;
 	}
 
 	.producto p{
@@ -215,15 +216,15 @@ and (max-width : 1824px){
 
 /*-----------------------------------------------------------------------------------*/
 
-/*Media Query para Pantallas PC y Portatiles*/
+/*Media Query para Tables y Dispositivos Moviles*/
 
 @media only screen 
 and (max-width : 600px){
 
 	.logo{
-			height: 5em;
-			background-size: 10em;
-			margin:auto;
+		height: 5em;
+		background-size: 10em;
+		margin:auto;
 	}
 
 	.imagen-cabecera img{
@@ -243,40 +244,25 @@ and (max-width : 600px){
 and (max-width : 420px){
 
 	.logo{
-			height: 5em;
-			background-size: 10em;
-			margin:auto;
+		height: 5em;
+		background-size: 10em;
+		margin:auto;
 	}
+
+	.titulo{
+		font-size: 2.2em;
+	}
+
 	.producto{
 		height: auto;
 	}
 
-}
-
-/*-----------------------------------------------------------------------------------*/
-
-/*Media Query para Celulares*/
-
-@media only screen 
-and (max-device-width : 600px){
-
-	.logo{
-			height: 10em;
-			background-size: 20em;
-			
+	.producto a{
+		width: 200px;
 	}
 
-	.imagen-cabecera img{
-
-    		width: 100%;
-    		height: 30%;
-   			margin: 0;
-		}
-
-	.productos{
-			/*background-color: #E43A19;*/
-			margin: 0 10%;
-		}
 }
+
+
 
 
