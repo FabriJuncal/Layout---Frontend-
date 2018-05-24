@@ -1,0 +1,833 @@
+/*FLEX-BOX*/
+
+/*
+Es un modelo de cajas flexibles que nos permite ubicar elementos para que se acomoden en cualquier dimensión
+que tenga la pantalla o el ancho para cualquier bloque que desees. Gracias a esa facilidad podemos hacer
+nuestros sitios web totalmente responsive, con esta propiedad.
+
+DISPLAY: FLEX
+Con esta propiedad se empieza a usar Flex-Box, no te olvides de colocar los prefijos.
+
+EJEMPLO:
+
+display: -webkit-box;
+display: -moz-box;
+display: -webkit-flex;
+display: box;
+display: flex;
+
+=========================================================================================================
+JUSTIFY-CONTENT 
+
+Esta propiedad nos a ayuda a distribuir los elementos sobre un eje principal.
+
+•CENTER: Permite centrar los elementos, pero sin dejar espacio entre ellos.
+•FLEX-START: Por defecto, los elementos comenzará alinearse al inicio de la línea.
+•FLEX-END: Los elementos se alineará al final de la línea.
+•SPACE-AROUND: Permite la distribución los elementos para que tengan el mismo espacio dentro del lugar asignado.
+•SPACE-BETWEEN: El primer elemento y el último elemento, se alinearán al extremo del espacio asignado.
+
+EJEMPLO:
+
+-webkit-justify-content: space-around;
+-moz-justify-content: space-around;
+-ms-justify-content: space-around;
+-o-justify-content: space-around;
+justify-content: space-around;
+
+=========================================================================================================
+ALIGN-ITEMS
+
+Nos ayuda a determinar la distribución de los elementos del eje Y (plano cartesiano).
+
+•BASELINE: Alinea los elementos en base a la línea que se encuentra.
+•CENTER: Permite que los elementos estén centrado en el eje Y.
+•FLEX-START: Ordena los elementos en la parte superior del eje Y.
+•FLEX-END: Ubica los elementos en la parte inferior del eje Y.
+•STRETCH: Proporciona el estiramiento de los elementos para adaptarse en el eje Y.
+
+EJEMPLO:
+
+
+-webkit-align-items:center;
+-moz-align-items:center;
+-ms-align-items:center;
+-o-align-items:center;
+align-items:center;	
+
+=========================================================================================================
+FLEX-WRAP
+
+Gracias esta propiedad es donde Flebox se vuelve popular para realizar sitios web responsive,
+porque permite realizar cajas flexibles, haciendo que los elementos se adapten a cualquier resolución
+de pantalla que se encuentre.
+
+•NOWRAP: Distribuye que los elementos estén una sola línea, no permitiendo que sea una caja flexible.
+•WRAP: Permite que la caja sea flexible, distribución los elementos que se adapten a cualquier
+espacio determinado.
+•WRAP-REVERSE: Realiza la misma función de flex-wrap, pero en este caso ordena los elementos de
+forma inversa.
+
+EJEMPLO:
+
+-webkit-flex-wrap:wrap;
+-moz-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+-o-flex-wrap:wrap;
+flex-wrap:flex-end;
+
+=========================================================================================================
+MAIN SIZE Y CROSS SIZE
+
+Main size y Cross size (tamaño principal y secundario) son las dimensiones de ancho y alto de los flex-items.
+Estos tamaños son siempre relativos a los ejes, por lo que main size podría ser width o height según
+la dirección del main axis (de igual manera con el cross size).
+
+=========================================================================================================
+TAMAÑO BASE PARA LOS ITEMS: “FLEX-BASIS”
+
+La propiedad flex-basis, como su nombre lo indica, define el main-size base para un flex-item.
+Tamaño base principal (main size base) significa que no necesariamente ese será su tamaño al dibujarse
+por el navegador, pero que será un punto de partida para calcular el tamaño final.
+
+IMPORTANTE
+
+•flex-basis siempre gana sobre el valor de width o height.
+•Si no se define el valor de flex-basis o se establece en auto, se tomará en cuenta el valor
+de width o height según sea el caso.
+•Si no se define un valor para flex-basis y tampoco se especifica el tamaño por width o height,
+se definirá el main-size según su contenido.
+
+=========================================================================================================
+CRECIMIENTO DEL MAIN-SIZE: “FLEX-GROW”
+
+La propiedad flex-grow, como su nombre lo indica, controla que tanto crecerá el flex-item para rellenar
+el espacio disponible. Su valor solo puede ser un número entero (no negativo).
+Esta propiedad solo se aplica si el espacio disponible es positivo (el tamaño del contenedor es mayor a
+la suma de los flex-items y sus márgenes).
+
+
+¿QUÉ SIGNIFICA EL NÚMERO EN FLEX-GROW?
+FLEX-GROW:X 
+el numero x indica cuantas unidades crecerá el item para calcular su tamaño final.
+Por ejemplo:
+FLEX-GROW: 3 significa que el item crecerá 3 unidades.
+
+¿CUÁNTO VALE CADA UNIDAD?
+unit grow = espacio disponible / suma de flex-grow
+
+EJEMPLO:
+
+.container { width: 500px; }
+	.item-1 { flex-basis: 100px ; flex-grow: 1 } 
+	.item-2 { flex-basis: 100px ; flex-grow: 2 } 
+	.item-3 { flex-basis: 100px ; flex-grow: 1 } 
+	.item-4 { flex-basis: 100px ; flex-grow: 1 }
+
+
+100px/(1+2+1+1) = 20px -> Este es el valor de la unidad (unit grow).
+
+Luego esta unidad de crecimiento se multiplicará por el valor de flex-grow para determinar cuanto 
+crecerá cada item.
+
+item1-> 20px * 1 = 20px 
+item2-> 20px * 2 = 40px 
+item3-> 20px * 1 = 20px 
+item4-> 20px * 1 = 20px
+
+Finalmente, el main size de cada item al dibujarse por el navegador será:
+
+item1 -> 120px 
+item2 -> 140px 
+item3 -> 120px 
+item4 -> 120px	
+
+=========================================================================================================
+ENCOGIMIENTO DEL MAIN-SIZE: “FLEX-SHRINK”
+
+Con la propiedad flex-shrink se controla cómo se encogerán los elementos.
+
+ 
+
+Para calcular el tamaño final de un item que se ha encogido, se usan los mismos principios que con flex-grow 
+solo que en el sentido opuesto. Veamoslo con un ejemplo:
+
+.container { width: 500px; } 
+	.item-1 { flex-basis: 150px ; flex-shrink: 1 } 
+	.item-2 { flex-basis: 150px ; flex-shrink: 2 } 
+	.item-3 { flex-basis: 150px ; flex-shrink: 1 } 
+	.item-4 { flex-basis: 150px ; flex-shrink: 1 }
+
+En este caso, el espacio disponible es negativo (–100px) ya que todos los items sumados dan 600px y el
+contenedor tiene solo 500px.
+La unidad (unit shrink) se define dividiendo el espacio disponible entre la suma de los valores de 
+flex-shrink, es decir:
+
+ -100px/5 = -20px
+
+Luego, los tamaños finales serán:
+
+item-1: 130px (150-20px*1) 
+item-2: 110px (150-20px*2) 
+item-3: 130px (150-20px*1) 
+item-4: 130px (150-20px*1)
+
+=========================================================================================================
+FLEX-FLOW
+
+es una propiedad abreviada de las siguientes propiedades:
+
+•FLEXIÓN
+•FLEX-WRAP
+
+Nota: si los elementos no son elementos flexibles, la flex-flow propiedad no tiene ningún efecto.
+
+DEFAULT VALUE:	row nowrap
+
+
+SINTAXIS
+
+flex-flow: flex-direction|flex-wrap|initial|inherit;
+
+==========================================================================
+				|	
+flex-direction	|  Possible values:
+==========================================================================
+				|	
+				|	row
+				|	row-reverse
+				|	column
+				|	column-reverse
+				|	initial
+				|	inherit
+				|	Default value is "row".
+
+					Especificar la dirección de los artículos flexibles
+
+==========================================================================
+			|
+flex-wrap	|	Possible values:
+==========================================================================
+			|
+			|	nowrap
+			|	wrap
+			|	wrap-reverse
+			|	initial
+			|	inherit
+			|	Default value is "nowrap".
+
+				Especificar si los artículos flexibles deben envolverse o no
+
+==========================================================================
+initial: Establece esta propiedad a su valor predeterminado.
+
+==========================================================================
+inherit: Hereda esta propiedad de su elemento principal. 
+
+==========================================================================
+
+
+
+*/
+
+
+html{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+*,*::before,*::after{  
+	/*
+	margin: 10px;		Al darle un "margin: 0px;" se nos acomoda la pagina
+	padding: 10px;
+	*/
+	margin: 0px;
+	padding: 0px;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+	text-decoration: none;
+}
+
+/*Le agregamos una fuente a la pagina*/
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 0px 0px 26px black, inset 0px 0px 20px grey;
+}
+
+
+.padre{
+	/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el HEADER, MAIN y el FOOTER uno alado del otro.
+	haremos que toda la estructura se vuelva flexible.*/
+	display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: box;
+
+	-webkit-display:flex;
+	-moz-display:flex;
+	-ms-display:flex;
+	-o-display:flex;
+	display:flex;
+
+
+	/* Con el valor "column" le decimos que se muestre en columna y con "nowrap" le decimos que todo
+	se adapte al valor establecido*/
+	/*FLEX-FLOW: FLEX-DIRECTION|FLEX-WRAP|INITIAL|INHERIT;*/
+	-webkit-flex-flow: column nowrap;
+	-moz-flex-flow: column nowrap;
+	-ms-flex-flow: column nowrap;
+	-o-flex-flow: column nowrap;
+	flex-flow: column nowrap;
+	
+}
+
+.margen-interno{
+	padding: 0 50px;
+}
+		
+		.header{
+
+			/* 
+			BACKGROUND: Le agregamos una imagen de fondo agragandole la direccionde enlace dentro del URL()
+			BACKGROUND-POSITION: Centramos la posicion de la imagen dentro del contenedor con CENTER;
+			BACKGROUND-ATTACHMENT: contain;
+			-WEBKIT-BACKGROUND-SIZE: cover;
+			BACKGROUND-SIZE: cover;
+			*/
+
+			background: url(http://cdn-static.denofgeek.com/sites/denofgeek/files/tf-panoramic-overwatch.jpg);
+			background-position: center;
+			background-attachment: contain;
+			-webkit-background-size: cover;
+			background-size: cover;
+			/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el MENU y el TEXTO-PRINCIPAL  uno alado del otro.
+			haremos que toda la estructura se vuelva flexible.*/
+			display: -webkit-box;
+			display: -moz-box;
+			display: -webkit-flex;
+			display: box;
+			display: flex;
+
+			/* Con el valor "column" le decimos que se muestre en columna y con "nowrap" le decimos que todo
+			se adapte al valor establecido*/
+			/*FLEX-FLOW: FLEX-DIRECTION|FLEX-WRAP|INITIAL|INHERIT;*/
+			-webkit-flex-flow: column nowrap;
+			-moz-flex-flow: column nowrap;
+			-ms-flex-flow: column nowrap;
+			-o-flex-flow: column nowrap;
+			flex-flow: column nowrap;
+
+			/*box-shadow: 0px 0px 40px black;*/
+	
+		}
+
+				.menu{
+					/*Le agregamos un fondo oscuro con una transparencia de 0.7*/
+					background: rgba(0,0,0,.7);
+					/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el LOGO, NAV y el SOCIAL  uno alado del otro.
+					haremos que toda la estructura se vuelva flexible.*/
+					display: -webkit-box;
+					display: -moz-box;
+					display: -webkit-flex;
+					display: box;
+					display: flex;
+
+					/* Con el valor "row" le decimos que se muestre en fila (una alado de otro) y con "nowrap" le decimos que todo
+					se adapte al valor establecido, es decir, que se muestre todo en una sola linea.*/
+					/*FLEX-FLOW: FLEX-DIRECTION|FLEX-WRAP|INITIAL|INHERIT;*/
+					-webkit-flex-flow:row nowrap;
+					-moz-flex-flow:row nowrap;
+					-ms-flex-flow:row nowrap;
+					-o-flex-flow:row nowrap;
+					flex-flow:row nowrap;
+					
+					/*
+					height: 100px; Hacemos mas pequeño el MENU  bajandole a 60px 
+					*/
+					height: 60px;
+
+					/* Alineamos todo el menu verticalmente*/
+					align-items: center;
+
+					/*Agregamos una pequeña linea en la parte de abajo del MENU*/
+					border-bottom: 2px solid rgba(255,255,255,.5);
+					/*Le agregamos un color blanco al borde*/
+					border-color: #fff;
+
+				}
+
+						.logo{
+							
+							/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+							flex:1 1 auto;							 
+						}
+							/*Hacemos que el color del enlace sea blanco*/
+							a[href*=index]{
+								color: white;
+							}
+
+							
+							a[href*=index]:hover{
+								color: #FF6C00;
+							}
+
+						.nav{
+							
+							/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el  NAV y sus elementos.
+							haremos que toda la estructura se vuelva flexible.*/
+							display: -webkit-box;
+							display: -moz-box;
+							display: -webkit-flex;
+							display: box;
+							display: flex;
+							/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+							flex:5 1 auto;
+							/*Centramos los elementos hijos*/
+							justify-content: center;
+
+						}
+
+								.nav>a{
+									/*Quitamos el subrayado del enlace*/
+									text-decoration: none;
+									color: #fff;								
+									margin: 10px;
+
+								}
+								
+								/*Le agregamos un pseudo elemento ":hover", y hara que al pasar
+								el cursor por encima del enlace, este cambiara de color*/
+								.nav>a:hover{
+									color: #FF6C00;
+								}
+
+
+								.nav i{
+									margin-right: 3px;
+								}
+
+						.social{
+							
+							/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+							flex:1 1 auto;
+						}
+
+							.social a{
+								color: #fff;
+								font-size: 30px;
+								padding: 0 5px;
+							}
+							/*Al pasar el cursor por encima del los logos de las redes sociales
+							cambiaran a sus respectivos colores*/
+							.social .icon-facebook-with-circle:hover{
+								color: #4267b2;
+							}
+
+							.social .icon-twitter-with-circle:hover{
+								color: #2daae2
+							}
+
+							.social .icon-instagram-with-circle:hover{
+								/*Le damos un degradado de colores y que se alinien en un angulo de -150 grados para formar el logo de Instagram*/
+								background: linear-gradient(-150deg, blue,red,yellow);
+								 -webkit-background-clip: text;
+								 color: transparent;
+							}
+
+							.social .icon-youtube:hover{
+								color: #f00;
+								
+							}
+						
+
+				.texto-principal{
+					/*background: #f07b3f;*/
+					/*Ampliamos el alto de la imagen de cabecera*/
+					height: 580px;
+
+					/* Lo hacemos flexible*/
+					display: -webkit-flex;
+					display: -moz-flex;
+					display: -ms-flex;
+					display: -o-flex;
+					display: flex;
+
+					/*Le damos un fondo oscuro con una transparencia de 0.5*/
+					background: rgba(0,0,0,0.4);
+					padding: 100px;
+					/*Alineamos todos los elementos hijos*/
+					align-items: center;
+				}
+					h1{
+						/*Le cambiamos el formato de fuente*/
+						font-family: 'Lora', serif;
+						/*Le damos un tamaño de 21px*/
+						font-size: 21px;
+						/*Le damos un color blanco a la fuente*/
+						color: #fff;
+						/*Le damos un ancho de 300*/
+						font-weight: 300;
+						/*Centramos el texto*/
+						text-align: center;
+						/*Le damos una altura de 1.6*/
+						line-height: 1.6;
+						
+					}
+
+				.linea-blanca{
+					height: 2px;
+				    background: #fff;
+				    /* z-index: 2; */
+				    /* position: absolute; */
+				    margin-bottom: 11px;
+				}
+
+
+		.main{
+			background: #000;
+			margin: 10px;
+
+		}
+			.section{
+				background: #f7f7f7;
+				
+				/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el SECTIONy el ASIDE  uno alado del otro.
+				haremos que toda la estructura se vuelva flexible.*/
+				display: -webkit-box;
+				display: -moz-box;
+				display: -webkit-flex;
+				display: box;
+				display: flex;
+			}
+					
+					.articulos{
+						
+						flex: 2 1 auto;
+						/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el ARTICLE y la NAVEGACION uno
+						alado del otro. haremos que toda la estructura se vuelva flexible.*/
+						display: -webkit-box;
+						display: -moz-box;
+						display: -webkit-flex;
+						display: box;
+						display: flex;
+						/* Con el valor "row" le decimos que se muestre en fila (una alado de otro) y con "wrap" le decimos 
+						que se cuando no tenga mas espacio en la linea, continua abajo*/
+						/*FLEX-FLOW: FLEX-DIRECTION|FLEX-WRAP|INITIAL|INHERIT;*/
+						-webkit-flex-flow:column wrap;
+						-moz-flex-flow:row wrap;
+						-ms-flex-flow:row wrap;
+						-o-flex-flow:row wrap;
+						flex-flow:row wrap;
+
+						background: #f7f7f7;
+						
+					}
+
+							.article{
+								/*background: #6A65D8;*/
+								/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+								/*flex: 1 1 40%;*/
+								color: #444;
+								font-size: 13px;
+								letter-spacing: 1px;
+								margin: 10px 10px 0 10px;
+								flex: 1 1 45%;
+								background: #ececec;
+								border-radius: 3%;
+
+
+							}
+
+									.article img{
+										/*Hacemos que la imagen de los ARTICLE, ocupe el 100 del contenedor*/
+										
+										width: 100%;
+										
+									}
+
+									h3{
+										color: #fff;
+										font-size: 13px;
+										padding: 10px 0;
+										margin: -100px 0 0 5px;
+									}
+
+									h2{
+										font-size: 25px;
+										/*Hacemos que todo el texto este en mayusculas*/
+										text-transform: uppercase;
+										padding: 0px 0 30px 5px;
+										color: #fff;
+										
+									}
+
+									.article a{
+										color: #fff;
+										font-size: 13px;
+										padding: 10px;
+										background: #000;
+										margin: 10px 0;
+										/*
+										Le decimos que caja se convierta en un elemento en línea, es decir, 
+										que la caja va a seguir una linea horizontal y sólo ocupa el espacio 
+										necesario que abarca el elemento que este contenga.
+										*/
+										display: inline-block; 
+										border-radius: 10%;
+									}
+
+									.article a:hover{
+										background: #FF6C00;
+									}
+
+							.navegacion{
+								background: #000;
+								/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+								flex: 1 1 100%;
+								/* Con el valor "row" le decimos que se muestre en fila (una alado de otro) y con "nowrap"
+								le decimos que cuando no halla mas lugar en la fila, que continue abajo*/
+								/*FLEX-FLOW: FLEX-DIRECTION|FLEX-WRAP|INITIAL|INHERIT;*/
+								-webkit-flex-flow:column nowrap;
+								-moz-flex-flow:row nowrap;
+								-ms-flex-flow:row nowrap;
+								-o-flex-flow:row nowrap;
+								flex-flow:row nowrap;
+
+								margin: 10px 10px 0 10px;
+
+							}
+
+							.navegacion a{
+								 color: #fff;
+								 font-size: 11px;
+								 text-transform: uppercase;
+								 padding: 0 10px;
+								 letter-spacing: 2px;
+
+							}
+
+							.navegacion a:hover{
+								color: #FF6C00;
+							}
+
+			.aside{
+				/*background: #E43A19;*/
+				/*FLEX: FLEX-GROW, FLEX-SHRINK, FLEX-BASIS */
+				flex: 1 1 auto;
+				margin: 10px 5px 10px 0;
+			}
+
+					.aside .nav{
+						/*margin: 10px 0 60px 0px;*/
+						background: #ececec;
+						padding: 7px 0 7px 0;
+						border-radius: 5%;	
+					}
+
+					.aside .nav ul li{
+						/*list-style: none;*/
+						padding: 10px 0 10px 0px;
+
+						border-bottom: 2px dotted black;
+
+
+
+
+					}
+
+					.aside .nav ul li:hover{
+						background: rgba(255, 146, 0, 0.8);
+
+					}
+					
+					.aside .nav ul li a{
+						color: #FF6C00;
+						padding: 10px;
+					}
+					
+
+					.aside .nav ul li:hover a{
+						color: black;
+					}
+
+					.publicidades{
+						padding-top: 30px;
+					}
+
+					.publicidad{
+						/*background: #FFE121;*/
+					}
+							h4{
+								background: #000;
+								color: #fff;
+								padding: 10px;
+								/*Convertimos todo el texto en mayuscula*/
+								text-transform: uppercase;
+							}
+
+							.publicidad img{
+								width: 100%;
+								
+							}
+
+
+		.footer{
+			background: #000;
+			/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el ".pie" hacia la izquierda.
+			haremos que toda la estructura se vuelva flexible.*/
+			display: -webkit-box;
+			display: -moz-box;
+			display: -webkit-flex;
+			display: box;
+			display: flex;
+			/*Centramos el elemento hijo de ".footer", en este caso se centra ".pie"*/
+			justify-content: center;
+
+			margin-top: 10px;
+
+		}
+
+				.pie{
+					/*background: #5FCC9C*/;
+					text-align: center;
+
+				}
+
+				.pie a{
+					color: #fff;
+					font-size: 11px;
+					text-transform: uppercase;
+					padding: 0 10px;
+					letter-spacing: 
+				}
+
+
+
+
+/*=========================================================================================================*/
+
+/*Hacemos responsive la pagina con las MEDIA QUERIES*/
+
+@media all and (max-width: 1120px){
+	.menu{
+		/*Le decimos se acomode en forma de columna*/
+		flex-direction: column;
+		height: auto;
+	}
+
+	h1{
+		font-size: 15px;
+
+	}
+
+	.texto-principal{
+		height: 450px;
+	}
+	.section{
+		/*Le decimos se acomode en forma de columna*/
+		flex-direction: column;
+	}
+
+	.aside{
+		/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar todos los hijos de ".aside" uno
+		alado del otro. haremos que toda la estructura se vuelva flexible.*/
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: box;
+		display: flex;
+		/*Centramos los elementos hijos de ".aside", en este caso se centran los dos "div.publicidad"*/
+		justify-content: center;
+		flex-direction: column;
+
+		margin: 10px 10px 10px 10px;
+	}
+
+			.aside .nav{
+				margin: 20px;
+				padding: 5px;
+			}
+
+			.lista-desordenada{
+				/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el LOGO, NAV y el SOCIAL  uno alado del otro.
+					haremos que toda la estructura se vuelva flexible.*/
+					display: -webkit-box;
+					display: -moz-box;
+					display: -webkit-flex;
+					display: box;
+					display: flex;
+					justify-content: space-around;
+					width: 100%;
+
+			}
+
+			.publicidades{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -webkit-flex;
+				display: box;
+				display: flex;
+				justify-content: space-around;
+				padding-top: 0px
+			}
+
+					.publicidad{
+						padding: 0 5px 0 0;
+					}
+
+}
+
+@media all and (max-width: 762px){
+	.articulos{
+		/*Le decimos se acomode en forma de columna*/
+		flex-direction: column;
+	}
+}
+
+@media all and (max-width: 650px){
+		
+		.off{
+			display: none;
+		}
+
+		.menu .nav a{
+			font-size: 25px;
+		}
+
+		.lista-desordenada{
+				/*Al agregarle "display: flex" y todos los prefijos, se van a acomodar el LOGO, NAV y el SOCIAL  uno alado del otro.
+					haremos que toda la estructura se vuelva flexible.*/
+					display: -webkit-box;
+					display: -moz-box;
+					display: -webkit-flex;
+					display: box;
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+
+			}
+
+}
+
+
+@media all and (max-width: 528px){
+
+	.publicidades{
+		flex-direction: column;
+	}
+}
+
+@media all and (max-width: 450px){
+	.aside{
+		/*Le decimos se acomode en forma de columna*/
+		flex-direction: column;
+	}
+}
+
+
+
+
