@@ -14,6 +14,6 @@
 ## 2nd project:
 
 
-### 
-
+### Like the previous project flexbox was used, in this case a structure for a home was developed
+![2nd_proyect](img/2nd_Proyect.png)
 > [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/2nd%20project)
