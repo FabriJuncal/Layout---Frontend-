@@ -23,4 +23,4 @@
 
 ### Using flexbox, a modern and simple structure was developed.
 ![3rd_proyect](img/3rd_Proyect.png)
-> [----->view<-----]()
+> [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/3rd%20Proyect)
