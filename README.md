@@ -1,6 +1,8 @@
 # Layout-Frontend
 
-![frontend_technology](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZtgzkVSPbLt25xCbFY1-vWmV8aYYLO8DICtztUAzNA-wC2Z4q)
+<p align="center">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZtgzkVSPbLt25xCbFY1-vWmV8aYYLO8DICtztUAzNA-wC2Z4q" alt="frontend_technology" width="320">
+</p>
 
 # Personal projects as a practice
 
