@@ -37,7 +37,7 @@
 
 ### 4th project
 
-### We use the <a href="https://github.com/FabriJuncal/Bootstrap-template">Bootstrap template<a> developed with Node.js and Gulp.js. In the created Landing Page, the effect of the Plugin js Scroll Reveal is highlighted.
+### We use the <a href="https://github.com/FabriJuncal/Bootstrap-template">Bootstrap template<a> developed with Node.js and Gulp.js. In the created Landing Page, the effect of the Plugin js <a href="https://scrollrevealjs.org/">Scroll Reveal<a> is highlighted.
 
 ![4th_project.png](img/4th_project.png)
 > [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/4th_project)
