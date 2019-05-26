@@ -37,6 +37,6 @@
 
 ### 4th project
 
-### We used the Bootstrap Template of the following repositor, where the functioning of the Js Plugin "Scroll Reveal" is highlighted to give effect when scrolling. The Bootstrap Template was developed with Node.js and Gulp.js.
+### We use the <a href="https://github.com/FabriJuncal/Bootstrap-template">Bootstrap template<a> developed with Node.js and Gulp.js following repository, where the operation of the "Scrolling offset" of Js is highlighted to give effect when it moves.
 ![4th_project.png](img/4th_project.png)
 > [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/4th_project)
