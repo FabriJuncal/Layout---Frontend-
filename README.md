@@ -37,6 +37,7 @@
 
 ### 4th project
 
-### We use the <a href="https://github.com/FabriJuncal/Bootstrap-template">Bootstrap template<a> developed with Node.js and Gulp.js following repository, where the operation of the "Scrolling offset" of Js is highlighted to give effect when it moves.
+### We use the <a href="https://github.com/FabriJuncal/Bootstrap-template">Bootstrap template<a> developed with Node.js and Gulp.js. In the created Landing Page, the effect of the js Plugin Reveal is highlighted.
+
 ![4th_project.png](img/4th_project.png)
 > [----->view<-----](https://github.com/FabriJuncal/Layout-Frontend/tree/master/4th_project)
